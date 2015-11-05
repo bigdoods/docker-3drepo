@@ -16,26 +16,26 @@ RUN apt-get -y update && apt-get -y install \
 	git \
 	scons \
 	cmake \
-	libboost1.55-all-dev \
+	libboost1.55-all-dev
 
 # Install MongoDB Cxx Driver
 
-RUN cd ~
-RUN git clone https://github.com/mongodb/mongo-cxx-driver
-RUN cd mongo-cxx-driver
-RUN git checkout legacy
-RUN scons --prefix=/usr/local install
+RUN cd ~ && \
+	git clone https://github.com/mongodb/mongo-cxx-driver
+RUN cd mongo-cxx-driver && \
+	git checkout legacy && \
+	scons --prefix=/usr/local install
 
 # Install ASSIMP
 
-RUN cd /usr/local/
-RUN git clone https://github.com/3drepo/assimp
-RUN cd assimp
-RUN git checkout multipart
-RUN mkdir build
-RUN cd build
-RUN cmake ../
-RUN make install
+RUN cd /usr/local/ && \
+	git clone https://github.com/3drepo/assimp
+RUN cd assimp && \
+	git checkout multipart && \
+	mkdir build
+RUN cd build && \
+	cmake ../ && \
+	make install
 
 # Make sure latest compiler version is used
 
@@ -45,13 +45,13 @@ RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.9 60 --slave /
 
 # Compile 3Drepo core
 
-RUN cd ~
-RUN git clone https://github.com/3drepo/3drepobouncer.git
-RUN cd 3drepobouncer
-RUN python updateSources.py
-RUN mkdir build
-RUN cd build
-RUN cmake ../
-RUN make install
+RUN cd ~ && \
+	git clone https://github.com/3drepo/3drepobouncer.git
+RUN cd 3drepobouncer && \
+	python updateSources.py && \
+	mkdir build
+RUN cd build && \
+	cmake ../ && \
+	make install
 
 ##################### END COMPILATION #####################
