@@ -8,6 +8,8 @@ MAINTAINER connoralexander@bimscript.com
 
 # Install Dependencies
 
+RUN apt-get -y install software-properties-common
+
 RUN add-apt-repository -y ppa:ubuntu-toolchain-r/test
 RUN apt-get -y update && apt-get -y install \
 	g++-4.9 \
@@ -18,6 +20,7 @@ RUN apt-get -y update && apt-get -y install \
 
 # Install MongoDB Cxx Driver
 
+RUN cd ~
 RUN git clone https://github.com/mongodb/mongo-cxx-driver
 RUN cd mongo-cxx-driver
 RUN git checkout legacy
@@ -38,7 +41,7 @@ RUN make install
 
 RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.9 60 --slave /usr/bin/g++ g++ /usr/bin/g++-4.9
 
-################## BEGIN INSTALLATION ######################
+################## BEGIN COMPILATION ######################
 
 # Compile 3Drepo core
 
@@ -49,6 +52,6 @@ RUN python updateSources.py
 RUN mkdir build
 RUN cd build
 RUN cmake ../
-RUN make
+RUN make install
 
-##################### END INSTALLATION #####################
+##################### END COMPILATION #####################
