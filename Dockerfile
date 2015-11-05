@@ -52,7 +52,3 @@ RUN cmake ../
 RUN make
 
 ##################### END INSTALLATION #####################
-
-USER 
-EXPOSE 
-ENTRYPOINT
