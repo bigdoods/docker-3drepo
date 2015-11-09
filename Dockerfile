@@ -52,6 +52,6 @@ RUN cd 3drepobouncer && \
 	mkdir build
 RUN cd build && \
 	cmake ../ && \
-	make install
+	make
 
 ##################### END COMPILATION #####################
