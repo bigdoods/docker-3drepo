@@ -21,7 +21,7 @@ RUN apt-get -y update && apt-get -y install \
 
 RUN cd ~ && \
 	git clone https://github.com/mongodb/mongo-cxx-driver
-RUN cd mongo-cxx-driver && \
+RUN cd ~/mongo-cxx-driver && \
 	git checkout legacy && \
 	scons --prefix=/usr/local install
 
@@ -46,10 +46,10 @@ RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.9 60 --slave /
 
 RUN cd ~ && \
 	git clone https://github.com/3drepo/3drepobouncer.git
-RUN cd 3drepobouncer/ && \
+RUN cd ~/3drepobouncer/ && \
 	python updateSources.py && \
 	mkdir build
-RUN cd 3drepobouncer/build/ && \
+RUN cd ~/3drepobouncer/build/ && \
 	cmake ../ && \
 	make
 
