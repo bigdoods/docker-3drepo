@@ -4,13 +4,12 @@
 ############################################################
 
 FROM ubuntu:14.04
-MAINTAINER connoralexander@bimscript.com
+MAINTAINER connor@jenca.io
 
 # Install Dependencies
 
-RUN apt-get -y install software-properties-common
-
-RUN add-apt-repository -y ppa:ubuntu-toolchain-r/test
+RUN apt-get -y install software-properties-common && \
+	add-apt-repository -y ppa:ubuntu-toolchain-r/test
 RUN apt-get -y update && apt-get -y install \
 	g++-4.9 \
 	git \
