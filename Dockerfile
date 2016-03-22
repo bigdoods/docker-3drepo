@@ -30,7 +30,7 @@ RUN cd ~/mongo-cxx-driver && \
 RUN cd /usr/local/ && \
 	git clone https://github.com/3drepo/assimp
 RUN cd /usr/local/assimp/ && \
-	git checkout multipart && \
+	git checkout ISSUE_4 && \
 	mkdir build
 RUN cd /usr/local/assimp/build && \
 	cmake ../ && \
