@@ -33,8 +33,7 @@ RUN cd /usr/local/assimp/ && \
 	git checkout ISSUE_4 && \
 	mkdir build
 RUN cd /usr/local/assimp/build && \
-	cmake ../ && \
-	make install
+	cmake ../
 
 # Make sure latest compiler version is used
 
